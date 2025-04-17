@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أمنية | Oumnia - تحميل</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6A359C;
+            --secondary: #FFD700;
+            --light: #FFFFFF;
+            --dark: #2E2E2E;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--primary), #8E44AD);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: var(--light);
+            overflow: hidden;
+        }
+        
+        .loading-container {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            color: var(--primary);
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .logo-text {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        .loading-text {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .progress-container {
+            width: 80%;
+            max-width: 300px;
+            height: 10px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: var(--secondary);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+            animation: progress 7s linear forwards;
+        }
+        
+        .loading-percentage {
+            margin-top: 15px;
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        @keyframes progress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .brand-text {
+            position: absolute;
+            bottom: 30px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-crown"></i>
+            </div>
+            <h1 class="logo-text">أمنية <span>| Oumnia</span></h1>
+        </div>
+        
+        <p class="loading-text">جاري تحميل التطبيق...</p>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        
+        <div class="loading-percentage" id="percentage">0%</div>
+    </div>
+    
+    <div class="brand-text">© 2025 أمنية | Oumnia - جميع الحقوق محفوظة</div>
+
+    <script>
+        // تحديث شريط التقدم والنسبة المئوية
+        const progressBar = document.getElementById('progress-bar');
+        const percentage = document.getElementById('percentage');
+        let percent = 0;
+        
+        const interval = setInterval(() => {
+            percent += 1;
+            percentage.textContent = `${percent}%`;
+            
+            if (percent >= 100) {
+                clearInterval(interval);
+            }
+        }, 70); // 7 ثوان ÷ 100% = 70 مللي ثانية لكل 1%
+        
+        // الانتقال بعد 7 ثوانٍ
+        setTimeout(() => {
+            window.location.href = "https://jamladz.github.io/oumniacool/"; // استبدل index.html بصفحتك الرئيسية
+        }, 7000);
+    </script>
+</body>
+</html>
